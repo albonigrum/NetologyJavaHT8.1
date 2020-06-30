@@ -73,12 +73,12 @@ class ConditionerTest {
         conditioner.setMinTemperature(10);
         conditioner.setCurrentTemperature(10);
 
-        int countPossibleOptions = conditioner.getMaxTemperature() - conditioner.getMinTemperature() + 1;
+        int countPossibleOptions = conditioner.getMaxTemperature() - conditioner.getMinTemperature();
 
         conditioner.increaseCurrentTemperature();
         assertEquals(11, conditioner.getCurrentTemperature());
 
-        for (int i = 0; i < countPossibleOptions - 1; ++i)
+        for (int i = 0; i < countPossibleOptions; ++i)
             conditioner.increaseCurrentTemperature();
 
         assertEquals(30, conditioner.getCurrentTemperature());
@@ -93,7 +93,7 @@ class ConditionerTest {
         conditioner.decreaseCurrentTemperature();
         assertEquals(29, conditioner.getCurrentTemperature());
 
-        int countPossibleOptions = conditioner.getMaxTemperature() - conditioner.getMinTemperature() + 1;
+        int countPossibleOptions = conditioner.getMaxTemperature() - conditioner.getMinTemperature();
 
         for (int i = 0; i < countPossibleOptions; ++i)
             conditioner.decreaseCurrentTemperature();
